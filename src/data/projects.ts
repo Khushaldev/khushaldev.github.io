@@ -10,6 +10,7 @@ export type Project = {
   image?: string;
   stars?: number;
   features?: string[];
+  tags?: string[]; // New field for project categories
 };
 
 export const projects: Project[] = [
@@ -29,7 +30,8 @@ export const projects: Project[] = [
       "Secure checkout with Stripe integration",
       "Order history and tracking",
       "Push notifications for order updates"
-    ]
+    ],
+    tags: ["Mobile App", "E-commerce"]
   },
   {
     id: "task-master",
@@ -46,7 +48,8 @@ export const projects: Project[] = [
       "Dark and light theme options",
       "Offline-first architecture with Hive database",
       "Data export and backup functionality"
-    ]
+    ],
+    tags: ["Mobile App", "Productivity"]
   },
   {
     id: "health-hub-api",
@@ -62,7 +65,8 @@ export const projects: Project[] = [
       "Nutritional information database",
       "Dockerized deployment for easy scaling",
       "Extensive documentation with Swagger"
-    ]
+    ],
+    tags: ["Backend", "API"]
   },
   {
     id: "dev-connect",
@@ -78,6 +82,7 @@ export const projects: Project[] = [
       "Real-time notifications using Supabase",
       "Responsive design for all device sizes",
       "Markdown support for posts and comments"
-    ]
+    ],
+    tags: ["Web App", "Social Platform"]
   },
 ];

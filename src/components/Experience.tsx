@@ -63,7 +63,7 @@ export default function Experience() {
           {experiences.map((exp, index) => (
             <div key={index} className="relative">
               {/* Circle on timeline */}
-              <div className="absolute -left-[3.35rem] -top-2 w-4 h-4 rounded-full bg-terminal-dark border-2 border-terminal-neon"></div>
+              <div className="absolute -left-[2.65rem] top-1.5 w-4 h-4 rounded-full bg-terminal-dark border-2 border-terminal-neon"></div>
               
               <div>
                 <div className="mb-1">
