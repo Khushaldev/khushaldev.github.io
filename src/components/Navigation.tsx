@@ -12,6 +12,7 @@ const navItems: NavItem[] = [
   { id: 'projects', label: '_projects' },
   { id: 'skills', label: '_skills' },
   { id: 'experience', label: '_experience' },
+  { id: 'education', label: '_education' },
   { id: 'contact', label: '_contact' }
 ];
 

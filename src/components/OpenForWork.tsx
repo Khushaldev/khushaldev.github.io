@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from './ui/button';
-import { Briefcase, Download } from 'lucide-react';
+import { Download } from 'lucide-react';
 
 export default function OpenForWork() {
   return (
@@ -15,9 +15,15 @@ export default function OpenForWork() {
           </div>
         </div>
         
-        <Button variant="outline" className="border-terminal-neon text-terminal-neon hover:bg-terminal-neon/10">
-          <Download className="mr-2" size={16} />
-          <a href="/resume.pdf" download="Khushal_Resume.pdf">Download Resume</a>
+        <Button 
+          variant="outline" 
+          className="border-terminal-neon text-terminal-neon hover:bg-terminal-neon hover:text-black transition-colors"
+          asChild
+        >
+          <a href="/resume.pdf" download="Khushal_Resume.pdf" className="flex items-center">
+            <Download className="mr-2" size={16} />
+            Download Resume
+          </a>
         </Button>
       </div>
     </section>

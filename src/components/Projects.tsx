@@ -1,51 +1,8 @@
 
 import React from 'react';
 import { Github } from 'lucide-react';
-
-type Project = {
-  title: string;
-  description: string;
-  technologies: string[];
-  github?: string;
-  playStore?: string;
-  appStore?: string;
-  image?: string;
-  stars?: number;
-};
-
-const projects: Project[] = [
-  {
-    title: "FlutterCommerce",
-    description: "A feature-rich e-commerce application built with Flutter and Firebase. Includes authentication, product browsing, cart functionality, and payment integration.",
-    technologies: ["Flutter", "Firebase", "Stripe"],
-    github: "https://github.com/khushal/flutter-commerce",
-    playStore: "https://play.google.com/store/apps",
-    appStore: "https://apps.apple.com/app/apple-store",
-    stars: 158,
-  },
-  {
-    title: "TaskMaster Pro",
-    description: "Productivity app with task management, reminders, and progress tracking. Features clean UI and offline functionality.",
-    technologies: ["Flutter", "Hive", "Provider"],
-    github: "https://github.com/khushal/task-master",
-    playStore: "https://play.google.com/store/apps",
-    stars: 92,
-  },
-  {
-    title: "HealthHub API",
-    description: "RESTful API for health tracking applications. Handles user data, activity tracking, and nutritional information.",
-    technologies: ["Node.js", "Express", "PostgreSQL", "Docker"],
-    github: "https://github.com/khushal/health-hub-api",
-    stars: 47,
-  },
-  {
-    title: "DevConnect",
-    description: "Social platform for developers to share projects and connect with peers. Includes authentication, profiles, posts, and comments.",
-    technologies: ["Next.js", "Supabase", "Tailwind CSS"],
-    github: "https://github.com/khushal/dev-connect",
-    stars: 72,
-  },
-];
+import { Link } from 'react-router-dom';
+import { projects } from '@/data/projects';
 
 export default function Projects() {
   return (
@@ -84,6 +41,13 @@ export default function Projects() {
               </div>
               
               <div className="flex flex-wrap gap-3">
+                <Link 
+                  to={`/project/${project.id}`}
+                  className="inline-flex items-center px-4 py-2 bg-terminal-neon/20 text-terminal-neon rounded border border-terminal-neon/30 hover:bg-terminal-neon/30 transition-colors"
+                >
+                  View Details
+                </Link>
+                
                 {project.github && (
                   <a 
                     href={project.github} 
@@ -92,29 +56,7 @@ export default function Projects() {
                     className="inline-flex items-center px-4 py-2 bg-terminal-dark text-white rounded border border-gray-700 hover:bg-gray-800 transition-colors"
                   >
                     <Github size={16} className="mr-2" />
-                    View on GitHub
-                  </a>
-                )}
-                
-                {project.playStore && (
-                  <a 
-                    href={project.playStore} 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-4 py-2 bg-green-700 text-white rounded hover:bg-green-800 transition-colors"
-                  >
-                    Play Store
-                  </a>
-                )}
-                
-                {project.appStore && (
-                  <a 
-                    href={project.appStore} 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
-                  >
-                    App Store
+                    GitHub
                   </a>
                 )}
               </div>
