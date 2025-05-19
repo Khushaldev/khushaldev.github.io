@@ -1,3 +1,7 @@
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -33,22 +37,6 @@
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
@@ -79,14 +67,6 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -96,6 +76,52 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-terminal-dark text-white font-mono overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .glow {
+    text-shadow: 0 0 10px rgba(88, 166, 255, 0.5), 0 0 20px rgba(88, 166, 255, 0.3);
+  }
+  
+  .glow-purple {
+    text-shadow: 0 0 10px rgba(191, 0, 255, 0.5), 0 0 20px rgba(191, 0, 255, 0.3);
+  }
+  
+  .glow-green {
+    text-shadow: 0 0 10px rgba(63, 185, 80, 0.5), 0 0 20px rgba(63, 185, 80, 0.3);
+  }
+
+  .section-heading {
+    @apply text-xl md:text-2xl lg:text-3xl font-bold text-terminal-neon mb-8 glow;
+  }
+  
+  .code-comment {
+    @apply text-terminal-comment italic;
+  }
+  
+  .terminal-background {
+    @apply bg-gradient-to-br from-terminal-darker via-terminal-dark to-terminal-light bg-[length:200%_200%] animate-gradient-x;
+  }
+  
+  .app-container {
+    @apply max-w-6xl mx-auto px-4 md:px-8;
+  }
+  
+  .nav-item {
+    @apply cursor-pointer py-2 px-3 transition-colors duration-300 hover:text-terminal-neon;
+  }
+  
+  .nav-item.active {
+    @apply text-terminal-neon border-b-2 border-terminal-neon;
+  }
+  
+  .project-card {
+    @apply bg-terminal-light border border-terminal-neon/20 rounded-md p-6 transition-all duration-300 hover:shadow-lg hover:shadow-terminal-neon/20 hover:border-terminal-neon/50;
+  }
+  
+  .skill-tag {
+    @apply px-3 py-1 text-sm rounded-full;
   }
 }
