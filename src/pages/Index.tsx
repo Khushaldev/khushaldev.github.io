@@ -10,14 +10,15 @@ import Education from '@/components/Education';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
+
 const Index = () => {
   return (
     <div className="min-h-screen bg-terminal-dark text-white">
       <Navigation />
       <Hero />
-      <OpenForWork />
-      <Projects />
+      {/* <OpenForWork /> */}
       <Skills />
+      <Projects />
       <Experience />
       <Education />
       <Contact />

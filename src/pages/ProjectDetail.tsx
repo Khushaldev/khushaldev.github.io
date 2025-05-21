@@ -33,12 +33,12 @@ export default function ProjectDetail() {
   return (
     <div className="min-h-screen bg-terminal-dark text-white flex flex-col">
       <Navigation />
-      
+
       <main className="flex-1 py-12">
         <div className="app-container">
           <div className="mb-8">
-            <Link 
-              to="/#projects" 
+            <Link
+              to="/#projects"
               className="inline-flex items-center text-terminal-neon hover:underline"
             >
               <ArrowLeft className="mr-2" size={16} />
@@ -49,7 +49,7 @@ export default function ProjectDetail() {
           <div className="bg-terminal-light border border-terminal-neon/30 rounded-lg p-8">
             <div className="flex flex-wrap items-center justify-between mb-3">
               <h1 className="text-3xl font-bold text-terminal-green glow-green">{project.title}</h1>
-              
+
               {project.stars && (
                 <div className="flex items-center">
                   <span className="mr-2">
@@ -61,14 +61,14 @@ export default function ProjectDetail() {
                 </div>
               )}
             </div>
-            
+
             {/* Project tags */}
             {project.tags && project.tags.length > 0 && (
               <div className="flex flex-wrap gap-2 mb-5">
                 {project.tags.map((tag, tagIndex) => (
-                  <Badge 
-                    key={tagIndex} 
-                    variant="outline" 
+                  <Badge
+                    key={tagIndex}
+                    variant="outline"
                     className="bg-terminal-dark/50 text-terminal-yellow border-terminal-yellow/30 flex items-center gap-1"
                   >
                     <Tag size={12} />
@@ -77,14 +77,14 @@ export default function ProjectDetail() {
                 ))}
               </div>
             )}
-            
+
             <p className="text-lg mb-8 text-gray-300">{project.description}</p>
-            
+
             <div className="mb-8">
               <h2 className="text-xl text-terminal-neon mb-4">Technologies</h2>
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech, index) => (
-                  <span 
+                  <span
                     key={index}
                     className="skill-tag bg-terminal-dark text-terminal-neon border border-terminal-neon/30"
                   >
@@ -93,26 +93,26 @@ export default function ProjectDetail() {
                 ))}
               </div>
             </div>
-            
+
             <div className="mb-8">
               <h2 className="text-xl text-terminal-neon mb-4">Key Features</h2>
               <ul className="list-disc pl-5 space-y-2 text-gray-300">
                 {project.features?.map((feature, index) => (
                   <li key={index}>{feature}</li>
                 )) || (
-                  <>
-                    <li>Clean and intuitive user interface</li>
-                    <li>Optimized performance for smooth user experience</li>
-                    <li>Comprehensive error handling and data validation</li>
-                  </>
-                )}
+                    <>
+                      <li>Clean and intuitive user interface</li>
+                      <li>Optimized performance for smooth user experience</li>
+                      <li>Comprehensive error handling and data validation</li>
+                    </>
+                  )}
               </ul>
             </div>
-            
+
             <div className="flex flex-wrap gap-3 mt-8">
               {project.github && (
-                <a 
-                  href={project.github} 
+                <a
+                  href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-4 py-2 bg-terminal-dark text-white rounded border border-gray-700 hover:bg-gray-800 transition-colors"
@@ -121,10 +121,10 @@ export default function ProjectDetail() {
                   View on GitHub
                 </a>
               )}
-              
+
               {project.playStore && (
-                <a 
-                  href={project.playStore} 
+                <a
+                  href={project.playStore}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-4 py-2 bg-green-700 text-white rounded hover:bg-green-800 transition-colors"
@@ -132,10 +132,10 @@ export default function ProjectDetail() {
                   Play Store
                 </a>
               )}
-              
+
               {project.appStore && (
-                <a 
-                  href={project.appStore} 
+                <a
+                  href={project.appStore}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
@@ -147,7 +147,7 @@ export default function ProjectDetail() {
           </div>
         </div>
       </main>
-      
+
       <Footer />
     </div>
   );

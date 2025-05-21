@@ -7,6 +7,12 @@ type SkillCategory = {
   skills: string[];
 };
 
+type TechExperience = {
+  name: string;
+  years: number;
+  level: 'Beginner' | 'Intermediate' | 'Advanced' | 'Expert';
+};
+
 const skillCategories: SkillCategory[] = [
   {
     name: "Mobile",
@@ -35,14 +41,55 @@ const skillCategories: SkillCategory[] = [
   }
 ];
 
+// Add tech experience data
+const techExperience: TechExperience[] = [
+  { name: "Flutter", years: 4, level: "Expert" },
+  { name: "Kotlin", years: 2, level: "Intermediate" },
+  { name: "Swift", years: 1, level: "Beginner" },
+  { name: "React Native", years: 2, level: "Intermediate" },
+  { name: "React.js", years: 3, level: "Intermediate" },
+  { name: "TypeScript", years: 3, level: "Intermediate" },
+  { name: "JavaScript", years: 3, level: "Intermediate" },
+  { name: "Node.js", years: 2, level: "Intermediate" },
+  { name: "Go-lang", years: 1, level: "Beginner" },
+  { name: "Firebase", years: 4, level: "Advanced" },
+  { name: "Git", years: 3, level: "Intermediate" },
+  { name: "REST APIs", years: 4, level: "Expert" },
+  { name: "PostgreSQL", years: 2, level: "Intermediate" }
+];
+
 export default function Skills() {
   return (
     <section id="skills" className="py-20 bg-terminal-darker">
       <div className="app-container">
         <p className="code-comment mb-2">// Technologies I work with</p>
-        <h2 className="section-heading">const skills = {'{'}</h2>
-        
-        <div className="space-y-10">
+        <div className='flex items-center gap-2 mb-6'>
+          <div className="h-2 w-2 bg-terminal-green rounded-full animate-pulse"></div>
+          <h3 className="text-xl font-bold text-terminal-green">Skills</h3>
+        </div>
+        {/* <h2 className="section-heading">const skills = {'{'}</h2> */}
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {techExperience.map((tech, index) => (
+            <div key={index} className="bg-terminal-light/30 border border-terminal-neon/20 rounded-md p-4">
+              <div className="flex justify-between items-center mb-2">
+                <span className="font-bold text-white">{tech.name}</span>
+                <span className="text-terminal-neon">{tech.years} {tech.years === 1 ? 'year' : 'years'}</span>
+              </div>
+              <div className="w-full bg-terminal-dark/50 h-2 rounded-full">
+                <div
+                  className="bg-terminal-neon h-2 rounded-full"
+                  style={{
+                    width: `${Math.min(100, (tech.years / 6) * 100)}%`,
+                  }}
+                ></div>
+              </div>
+              <div className="text-right text-xs text-gray-400 mt-1">{tech.level}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* <div className="space-y-10">
           {skillCategories.map((category, index) => (
             <div key={index} className="mb-8">
               <h3 className={`text-xl font-bold mb-4 ${category.color}`}>
@@ -65,9 +112,8 @@ export default function Skills() {
               </div>
             </div>
           ))}
-        </div>
-        
-        <p className="text-terminal-neon">{'}'};</p>
+        </div> */}
+
       </div>
     </section>
   );
