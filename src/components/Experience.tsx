@@ -10,6 +10,12 @@ type ExperienceItem = {
   technologies: string[];
 };
 
+type TechExperience = {
+  name: string;
+  years: number;
+  level: 'Beginner' | 'Intermediate' | 'Advanced' | 'Expert';
+};
+
 const experiences: ExperienceItem[] = [
   {
     company: "TechMobile Inc.",
@@ -50,6 +56,20 @@ const experiences: ExperienceItem[] = [
     ],
     technologies: ["React Native", "JavaScript", "RESTful APIs", "Redux"]
   }
+];
+
+// Add tech experience data
+const techExperience: TechExperience[] = [
+  { name: "Flutter", years: 4, level: "Expert" },
+  { name: "React.js", years: 5, level: "Expert" },
+  { name: "React Native", years: 4, level: "Advanced" },
+  { name: "TypeScript", years: 3, level: "Advanced" },
+  { name: "JavaScript", years: 6, level: "Expert" },
+  { name: "Node.js", years: 4, level: "Advanced" },
+  { name: "Firebase", years: 4, level: "Advanced" },
+  { name: "Git", years: 5, level: "Advanced" },
+  { name: "REST APIs", years: 5, level: "Expert" },
+  { name: "PostgreSQL", years: 3, level: "Intermediate" }
 ];
 
 export default function Experience() {
@@ -97,6 +117,32 @@ export default function Experience() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Years of experience with technologies */}
+        <div className="mt-16">
+          <p className="code-comment mb-2">// Years of experience</p>
+          <h3 className="text-xl font-bold text-terminal-green mb-6">Technical Experience</h3>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {techExperience.map((tech, index) => (
+              <div key={index} className="bg-terminal-light/30 border border-terminal-neon/20 rounded-md p-4">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="font-bold text-white">{tech.name}</span>
+                  <span className="text-terminal-neon">{tech.years} {tech.years === 1 ? 'year' : 'years'}</span>
+                </div>
+                <div className="w-full bg-terminal-dark/50 h-2 rounded-full">
+                  <div 
+                    className="bg-terminal-neon h-2 rounded-full"
+                    style={{
+                      width: `${Math.min(100, (tech.years / 6) * 100)}%`,
+                    }}
+                  ></div>
+                </div>
+                <div className="text-right text-xs text-gray-400 mt-1">{tech.level}</div>
+              </div>
+            ))}
+          </div>
         </div>
         
         <p className="mt-10 text-right text-terminal-neon">{'};'}</p>

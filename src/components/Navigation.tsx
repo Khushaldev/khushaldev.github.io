@@ -58,8 +58,14 @@ export default function Navigation() {
   return (
     <nav className="sticky top-0 z-50 bg-terminal-darker/80 backdrop-blur-md border-b border-terminal-neon/20">
       <div className="app-container flex justify-between items-center py-4">
-        <div className="flex items-center">
+        <div className="flex items-center gap-3">
           <span className="text-terminal-neon font-bold text-xl glow">K.dev</span>
+          
+          {/* Open for Work indicator in navigation */}
+          <div className="hidden sm:flex items-center gap-2 bg-terminal-green/10 px-3 py-1 rounded-full border border-terminal-green/30">
+            <div className="h-2 w-2 bg-terminal-green rounded-full animate-pulse"></div>
+            <span className="text-xs text-terminal-green font-semibold">Open for Work</span>
+          </div>
         </div>
         
         {/* Mobile menu button */}
@@ -91,6 +97,12 @@ export default function Navigation() {
       {mobileMenuOpen && (
         <div className="md:hidden bg-terminal-darker border-t border-terminal-neon/20">
           <div className="app-container py-2">
+            {/* Mobile Open for Work indicator */}
+            <div className="flex items-center gap-2 bg-terminal-green/10 px-3 py-2 mb-2 rounded-md border border-terminal-green/30">
+              <div className="h-2 w-2 bg-terminal-green rounded-full animate-pulse"></div>
+              <span className="text-sm text-terminal-green font-semibold">Open for Work</span>
+            </div>
+            
             {navItems.map((item) => (
               <button
                 key={item.id}

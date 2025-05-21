@@ -17,7 +17,7 @@ export default function OpenForWork() {
         
         <Button 
           variant="outline" 
-          className="border-terminal-neon text-terminal-neon hover:bg-terminal-neon hover:text-black transition-colors"
+          className="border-terminal-neon text-terminal-neon hover:bg-terminal-neon hover:text-black dark:hover:text-black transition-colors"
           asChild
         >
           <a href="/resume.pdf" download="Khushal_Resume.pdf" className="flex items-center">
